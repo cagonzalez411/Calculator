@@ -32,4 +32,8 @@ button {
     
 }
 
-
+#display, #subdisplay {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+}
