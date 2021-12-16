@@ -37,3 +37,9 @@ button {
     flex-direction: row-reverse;
     text-align: right;
 }
+
+.topDisplay {
+    display: flex;
+    flex-direction: column;
+    width: 212px;
+}
