@@ -10,6 +10,7 @@ let wasOperationChosen = null
 let operatorChosen = null
 let operateResult = null
 let evaluated = false
+let dividebyZero = false
 
 
 function add(a,b) {
@@ -27,7 +28,7 @@ function multiply(a, b) {
 function divide(a, b) {
     if (b == 0) {
         alert('Error: Dividing by zero')
-        return null
+        dividebyZero = true
     }
     return a / b
 }
@@ -60,6 +61,7 @@ function clearFunction() {
     wasOperationChosen = null 
     operatorChosen = null
     display.textContent = 0
+    subdisplay.textContent = String.fromCharCode(160)
 
 }
 
@@ -84,16 +86,26 @@ digits.forEach(digit => {
 
 operators.forEach(operator => {
     operator.addEventListener('click', function() {
+        
+        if (wasOperationChosen) {
+            operateResult = operate(operatorChosen, firstEle, secondEle)
+            firstEle = operateResult
+            subdisplay.textContent = firstEle
+        } else {
+            subdisplay.textContent = firstEle
+        }
         wasOperationChosen = true
         chooseOperation(operator.textContent)
-        subdisplay.textContent = firstEle
+        
     })
 })
 
 equals.addEventListener('click', function() {
-    operateResult = operate(operatorChosen, firstEle, secondEle)
-    display.textContent = operateResult
-    evaluated = true
+    if (!dividebyZero) {
+        operateResult = operate(operatorChosen, firstEle, secondEle)
+        display.textContent = operateResult
+        evaluated = true
+    }
 })
 
 clear.addEventListener('click', () => {
