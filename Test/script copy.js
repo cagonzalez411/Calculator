@@ -79,6 +79,10 @@ function getOperator(operator) {
     }
 }
 
+function determineDecimal(number) {
+    
+}
+
 digits.forEach(digit => {
 
     digit.addEventListener('click', function() {
