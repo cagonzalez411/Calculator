@@ -119,6 +119,7 @@ operators.forEach(operator => {
 equals.addEventListener('click', function() {
     if (!input) {
         secondEle = firstEle
+        input = true
     }
 
     if (firstEle != null && secondEle != null) {
