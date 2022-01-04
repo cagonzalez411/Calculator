@@ -100,7 +100,7 @@ equals.addEventListener('click', function() {
         let secondEle = display.textContent
         let resultRounded = Math.round(result * 10000)/10000
         display.textContent = resultRounded
-        subdisplay.textContent = +firstEle + ` ${operationSign} ` + +secondEle + ' ='
+        subdisplay.textContent = +firstEle + ` ${operationSign} ` + +secondEle 
     }
     
 })
