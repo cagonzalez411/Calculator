@@ -11,6 +11,7 @@ let secondEle = null
 let input = false
 let result = null
 let operated = false
+let decimalAdded = false
 
 
 function add(a,b) {
@@ -79,13 +80,16 @@ function getOperator(operator) {
     }
 }
 
-function determineDecimal(number) {
-    
+function isDecimal(number) {
+    return number.includes('.')   
 }
 
 digits.forEach(digit => {
 
     digit.addEventListener('click', function() {
+        if (digit.textContent == '.' && isDecimal(display.textContent)) {
+            return
+        }
         changeDisplay(digit.textContent)
         input = true
         if (!operatorChosen) {
